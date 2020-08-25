@@ -11,7 +11,7 @@ const Loading = () => {
         <span></span>
         <span></span>
       </div>
-      <img src='/images/loading.png' className='loader__img' />
+      <img src='/images/loading.png' className='loader__img' alt='loading' />
     </div>
   );
 };

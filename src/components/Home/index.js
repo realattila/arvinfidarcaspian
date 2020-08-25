@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 // import components
 import Header from '../Header';
@@ -73,17 +73,19 @@ const Home = () => {
     },
   ];
 
-  const [state, setState] = React.useState({
+  const [state, setState] = useState({
     showModal: false,
     data: null,
     loading: true,
   });
 
-  React.useEffect(() => {
-    setTimeout(() => {
-      setState({ ...state, loading: false });
-    }, 1000);
-  }, []);
+  useEffect(() => {
+    if (Loading) {
+      setTimeout(() => {
+        setState({ ...state, loading: false });
+      }, 1000);
+    }
+  }, [state]);
 
   if (state.loading) {
     return <Loading />;
@@ -151,9 +153,7 @@ const Home = () => {
             <div>در تولید سنسور لنت ترمز</div>
           </h1>
         </div>
-        <div className='home__service '>
-          <h2 className='home__service__title'></h2>
-        </div>
+
         <div className='home__product'>
           <h2 className='home__product__title'>محصولات ما</h2>
           <div className='home__product__subtitle'>شما می توانید هر محصولاتی را مد منظرات هست همین الان سفارش دهید</div>
