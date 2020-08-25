@@ -1,0 +1,16 @@
+@keyframes highlight {
+  100% {
+    background-position: 0 0, 0 0;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    transform: scale(0);
+    transform-origin: center center;
+  }
+  100% {
+    transform: scale(1);
+    transform-origin: center center;
+  }
+}

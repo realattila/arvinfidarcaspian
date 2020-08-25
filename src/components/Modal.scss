@@ -1,0 +1,31 @@
+@import '../animation';
+.modal {
+  display: none;
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  z-index: 10;
+  &--show {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__background {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: var(--color-black-4);
+  }
+  &__content {
+    z-index: 1;
+    background-color: var(--color-white);
+    border-radius: 0.4rem;
+    max-width: 40rem;
+    width: 100%;
+    overflow: hidden;
+    &--show {
+      animation: fadeIn 0.2s ease-out;
+    }
+  }
+}
