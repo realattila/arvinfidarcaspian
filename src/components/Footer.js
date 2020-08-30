@@ -13,7 +13,7 @@ const Footer = ({ action = false }) => {
             <div className='footer__action__container'>
               <span className='footer__action__span'>آماده اید؟</span>
               <h2 className='footer__action__title'>بیاید کار کنیم</h2>
-              <Link to='/' className='footer__action__btn'>
+              <Link to='/contact' className='footer__action__btn'>
                 تماس بگیرید
               </Link>
             </div>

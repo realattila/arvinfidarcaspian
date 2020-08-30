@@ -85,7 +85,7 @@ const Home = () => {
         setState({ ...state, loading: false });
       }, 1000);
     }
-  }, [state]);
+  }, []);
 
   if (state.loading) {
     return <Loading />;
@@ -125,7 +125,7 @@ const Home = () => {
         <div className='home__modal'>
           <div className='home__modal__header'>
             <h3 className='home__modal__header__title'>ثبت سفارش</h3>
-            <button className='home__modal__header__close'>
+            <button className='home__modal__header__close' onClick={closeModal}>
               <i className='fal fa-times home__modal__header__close__icon'></i>
             </button>
           </div>
@@ -157,11 +157,13 @@ const Home = () => {
         <div className='home__product'>
           <h2 className='home__product__title'>محصولات ما</h2>
           <div className='home__product__subtitle'>شما می توانید هر محصولاتی را مد منظرات هست همین الان سفارش دهید</div>
-          <div className='home__product__box'>
-            {itemProductRender()}
-            <Modal show={state.showModal} closeModal={closeModal}>
-              {moldalDataRender()}
-            </Modal>
+          <div className='container'>
+            <div className='row'>
+              {itemProductRender()}
+              <Modal show={state.showModal} closeModal={closeModal}>
+                {moldalDataRender()}
+              </Modal>
+            </div>
           </div>
         </div>
       </div>

@@ -161,3 +161,16 @@
     }
   }
 }
+
+@include res(phone) {
+  .footer {
+    &__down {
+      height: 30rem;
+    }
+    &__logo__container,
+    &__social {
+      width: 100%;
+      text-align: center;
+    }
+  }
+}

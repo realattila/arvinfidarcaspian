@@ -50,13 +50,13 @@ const Header = () => {
         <div className='header__menu'>
           <ul className='header__menu__list' ref={menuListRef}>
             <li className='header__menu__item'>
-              <Link href='/' className='header__menu__link header__menu__link--action'>
+              <Link to='/' className='header__menu__link header__menu__link--action'>
                 سفارش دهید
               </Link>
             </li>
             <li className='header__menu__item'>
-              <Link to='/' className='header__menu__link'>
-                خانه
+              <Link to='/contact' className='header__menu__link'>
+                تماس با ما
               </Link>
             </li>
             <li className='header__menu__item'>
