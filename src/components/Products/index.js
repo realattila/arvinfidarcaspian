@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import backToTop from '../../backToTop';
 // import style
 import './Products.scss';
 
@@ -73,7 +73,13 @@ const Products = (props) => {
     },
   ];
 
+  // useState
   const [state, setState] = useState({ showModal: false, data: null });
+
+  // useEffect
+  useEffect(() => {
+    backToTop();
+  }, []);
 
   // on click product Item
   const onClickproductItem = (id) => {

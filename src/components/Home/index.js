@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import backToTop from '../../backToTop';
 
 // import components
 import Header from '../Header';
@@ -8,6 +9,7 @@ import Loading from '../Loading';
 
 // import styles
 import './Home.scss';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   const fakeData = [
@@ -29,48 +31,6 @@ const Home = () => {
       src: '/images/fakeitemjpg.jpg',
       description: 'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.',
     },
-    {
-      id: 4,
-      title: 'سنسور لنت ترمز',
-      src: '/images/fakeitemjpg.jpg',
-      description: 'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.',
-    },
-    {
-      id: 5,
-      title: 'سنسور لنت ترمز',
-      src: '/images/fakeitemjpg.jpg',
-      description: 'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.',
-    },
-    {
-      id: 6,
-      title: 'سنسور لنت ترمز',
-      src: '/images/fakeitemjpg.jpg',
-      description: 'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.',
-    },
-    {
-      id: 7,
-      title: 'سنسور لنت ترمز',
-      src: '/images/fakeitemjpg.jpg',
-      description: 'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.',
-    },
-    {
-      id: 8,
-      title: 'سنسور لنت ترمز',
-      src: '/images/fakeitemjpg.jpg',
-      description: 'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.',
-    },
-    {
-      id: 9,
-      title: 'سنسور لنت ترمز',
-      src: '/images/fakeitemjpg.jpg',
-      description: 'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.',
-    },
-    {
-      id: 10,
-      title: 'سنسور لنت ترمز',
-      src: '/images/fakeitemjpg.jpg',
-      description: 'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.',
-    },
   ];
 
   const [state, setState] = useState({
@@ -85,6 +45,7 @@ const Home = () => {
         setState({ ...state, loading: false });
       }, 1750);
     }
+    backToTop();
   }, []);
 
   if (state.loading) {
@@ -141,7 +102,7 @@ const Home = () => {
         <div className='home__intro'>
           <div className='home__intro__video__container'>
             <div className='home__intro__video__box'>
-              <video className='home__intro__video' src='https://avandfidarcaspian.ir/videos/homeIntro.mp4' type='video/mp4' autoPlay loop></video>
+              <video className='home__intro__video' src='/videos/homeIntro.mp4' type='video/mp4' autoPlay loop></video>
             </div>
           </div>
           <h1 className='home__intro__title text-shadow--lg'>
@@ -150,12 +111,17 @@ const Home = () => {
           </h1>
         </div>
 
-        <div className='products'>
+        <div className='products home__products'>
           <h2 className='products__title'>محصولات ما</h2>
           <div className='products__subtitle'>شما می توانید هر محصولاتی را مد منظرات هست همین الان سفارش دهید</div>
           <div className='container'>
             <div className='row'>
               {itemProductRender()}
+              <div className='home__products__all'>
+                <Link className='home__products__all__link' to='/products'>
+                  <span>مشاهده تمامی محصولات</span>
+                </Link>
+              </div>
               <Modal show={state.showModal} closeModal={closeModal}>
                 {moldalDataRender()}
               </Modal>
