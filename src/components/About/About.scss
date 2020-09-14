@@ -1,0 +1,66 @@
+.about {
+  &__item {
+    padding: 7.2rem 0;
+  }
+  &__about {
+    direction: rtl;
+
+    &__title {
+      text-align: center;
+      font-weight: normal;
+      font-size: 3.6rem;
+      margin-bottom: 3.6rem;
+    }
+    &__text {
+      font-size: 1.6rem;
+      line-height: 1.8;
+      color: var(--color-gray-4);
+    }
+  }
+  &__fact {
+    &__title {
+      margin-bottom: 3.6rem;
+      font-size: 3.6rem;
+      font-weight: normal;
+    }
+    &__item {
+      width: 33.333%;
+
+      padding: 0 1.8rem;
+
+      &__title {
+        font-size: 4.2rem;
+        text-align: center;
+      }
+      &__count {
+        color: var(--color-pink);
+      }
+      &__plus {
+        position: relative;
+        top: -0.4rem;
+        color: var(--color-pink);
+      }
+      &__text {
+        text-align: center;
+        font-size: 1.6rem;
+        color: var(--color-gray-4);
+      }
+    }
+  }
+  &__logos {
+    text-align: center;
+    &__item {
+      width: 15%;
+      cursor: pointer;
+      &:hover img {
+        transform: scale(1);
+      }
+      &__img {
+        transform: scale(0.9);
+        transition: all 0.2s ease-out;
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}

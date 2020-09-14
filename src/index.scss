@@ -21,6 +21,8 @@ label {
 
 :root {
   --color-primary: #f81f01;
+  --color-primary-rgba: rgba(248, 31, 1, 0.1);
+  --color-green: #00b8a9;
   --color-blue: #3282b8;
   --color-red-2: #f9004d;
   --color-pink: #ee076e;
@@ -54,10 +56,20 @@ a:active {
 button {
   border: none;
   background-color: transparent;
+  outline: none;
 }
 
 h1 {
   font-size: 3.6rem;
+}
+
+::-moz-selection {
+  background: var(--color-pink);
+  color: var(--color-white);
+}
+::selection {
+  background: var(--color-pink);
+  color: var(--color-white);
 }
 
 //default Classes
@@ -164,4 +176,11 @@ h1 {
       }
     }
   }
+}
+
+.ltr {
+  direction: ltr;
+}
+.rtl {
+  direction: rtl;
 }

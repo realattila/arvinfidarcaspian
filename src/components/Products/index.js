@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+
+// import style
+import './Products.scss';
 
 // import components
 import Header from '../Header';
 import Footer from '../Footer';
 import Modal from '../Modal';
-import Loading from '../Loading';
 
-// import styles
-import './Home.scss';
-
-const Home = () => {
+const Products = (props) => {
   const fakeData = [
     {
       id: 1,
@@ -73,23 +73,7 @@ const Home = () => {
     },
   ];
 
-  const [state, setState] = useState({
-    showModal: false,
-    data: null,
-    loading: true,
-  });
-
-  useEffect(() => {
-    if (Loading) {
-      setTimeout(() => {
-        setState({ ...state, loading: false });
-      }, 1750);
-    }
-  }, []);
-
-  if (state.loading) {
-    return <Loading />;
-  }
+  const [state, setState] = useState({ showModal: false, data: null });
 
   // on click product Item
   const onClickproductItem = (id) => {
@@ -134,38 +118,38 @@ const Home = () => {
       );
     }
   };
-  return (
-    <>
-      <Header />
-      <div className='home'>
-        <div className='home__intro'>
-          <div className='home__intro__video__container'>
-            <div className='home__intro__video__box'>
-              <video className='home__intro__video' src='https://avandfidarcaspian.ir/videos/homeIntro.mp4' type='video/mp4' autoPlay loop></video>
-            </div>
-          </div>
-          <h1 className='home__intro__title text-shadow--lg'>
-            <div>شماره یک</div>
-            <div>در تولید سنسور لنت ترمز</div>
-          </h1>
-        </div>
 
-        <div className='products'>
-          <h2 className='products__title'>محصولات ما</h2>
-          <div className='products__subtitle'>شما می توانید هر محصولاتی را مد منظرات هست همین الان سفارش دهید</div>
-          <div className='container'>
-            <div className='row'>
-              {itemProductRender()}
-              <Modal show={state.showModal} closeModal={closeModal}>
-                {moldalDataRender()}
-              </Modal>
-            </div>
+  return (
+    <div>
+      <Header />
+      <div className='page__header'>
+        <h1 className='page__header__title'>محصولات ما</h1>
+        <div className='page__header__breadcrumb'>
+          <Link to='/' className='page__header__breadcrumb__link'>
+            خانه
+          </Link>
+          <span className='page__header__breadcrumb__span'>/</span>
+          <Link to='/products' className='page__header__breadcrumb__link page__header__breadcrumb__current'>
+            محصولات ما
+          </Link>
+        </div>
+      </div>
+
+      <div className='products'>
+        <h2 className='products__title'>محصولات ما</h2>
+        <div className='products__subtitle'>شما می توانید هر محصولاتی را مد منظرات هست همین الان سفارش دهید</div>
+        <div className='container'>
+          <div className='row'>
+            {itemProductRender()}
+            <Modal show={state.showModal} closeModal={closeModal}>
+              {moldalDataRender()}
+            </Modal>
           </div>
         </div>
       </div>
-      <Footer action />
-    </>
+      <Footer />
+    </div>
   );
 };
 
-export default Home;
+export default Products;

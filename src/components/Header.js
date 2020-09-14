@@ -50,7 +50,7 @@ const Header = () => {
         <div className='header__menu'>
           <ul className='header__menu__list' ref={menuListRef}>
             <li className='header__menu__item'>
-              <Link to='/' className='header__menu__link header__menu__link--action'>
+              <Link to='/products' className='header__menu__link header__menu__link--action'>
                 سفارش دهید
               </Link>
             </li>
@@ -60,8 +60,8 @@ const Header = () => {
               </Link>
             </li>
             <li className='header__menu__item'>
-              <Link to='/' className='header__menu__link'>
-                خانه
+              <Link to='/about' className='header__menu__link'>
+                درباره ما
               </Link>
             </li>
             <li className='header__menu__item'>

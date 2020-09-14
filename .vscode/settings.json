@@ -1,0 +1,17 @@
+{
+    "sqltools.connections": [
+        {
+            "askForPassword": true,
+            "database": "avand",
+            "driver": "MariaDB",
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "name": "avand fidar",
+            "port": 3306,
+            "previewLimit": 50,
+            "server": "localhost",
+            "username": "root"
+        }
+    ]
+}

@@ -55,6 +55,35 @@
   }
 }
 
+.loader2 {
+  &__box {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-white);
+    animation: translate 0.8s ease-out 1s;
+  }
+  &__container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__img {
+    height: 15rem;
+    width: auto;
+  }
+  &__title {
+    color: var(--color-primary);
+    margin-top: 3rem;
+    font-size: 3rem;
+    text-shadow: 0rem 0.2rem 0.3rem var(--color-primary-rgba);
+  }
+}
+
 @keyframes animate {
   0% {
     transform: rotate(0deg);
@@ -62,5 +91,17 @@
 
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes translate {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10vh);
+  }
+  100% {
+    transform: translateY(-120vh);
   }
 }
