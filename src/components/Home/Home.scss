@@ -2,6 +2,14 @@
 @import '../../animation';
 .home {
   background-color: var(--color-white);
+  &__item {
+    &__title {
+      font-weight: bold;
+      margin: 2rem auto;
+      font-size: 3.2rem;
+      text-align: center;
+    }
+  }
   &__intro {
     width: 100%;
     overflow: hidden;
@@ -38,7 +46,7 @@
     }
   }
   &__products {
-    padding: 8rem 0 16rem 0 !important;
+    padding: 9.2rem 0 !important;
     &__all {
       width: 100%;
       display: flex;
@@ -47,26 +55,36 @@
         &,
         &:visited,
         &:active {
-          color: var(--color-white);
-          border: 0.1rem solid var(--color-white);
           margin-top: 3.6rem;
           font-size: 2.4rem;
           cursor: pointer;
           transition: all 0.2s ease-out;
           display: inline-block;
           padding: 1.2rem 3.6rem;
-          background: linear-gradient(145deg, var(--color-primary), var(--color-pink));
           border-radius: 0.6rem;
 
+          background: var(--color-white);
+          color: var(--color-red-2);
+          border: 0.1rem solid var(--color-red-2);
+
           &:hover {
-            background: var(--color-white);
-            color: var(--color-red-2);
-            border-color: var(--color-red-2);
+            background: linear-gradient(
+              145deg,
+              var(--color-primary),
+              var(--color-pink)
+            );
+            color: var(--color-white);
+            border: 0.1rem solid var(--color-white);
+
             transform: translateY(-0.4rem);
           }
         }
       }
     }
+  }
+  &__logos {
+    padding-top: 4.1rem;
+    padding-bottom: 9.2rem;
   }
 }
 

@@ -5,7 +5,7 @@
   left: 0;
   top: 0;
   width: 100%;
-  z-index: 2;
+  z-index: 3;
 
   &__wrapper {
     transition: all 0.4s ease-out;
@@ -106,7 +106,8 @@
           background-color: var(--color-primary);
           color: var(--color-white);
           border-color: var(--color-primary);
-          box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+          box-shadow: 0 0.125rem 0.25rem
+            rgba(0, 0, 0, 0.075) !important;
         }
         &::after {
           display: none;
@@ -128,7 +129,8 @@
       }
       &--action {
         border-color: var(--color-black);
-        box-shadow: 0 0.125rem 0.25rem rgba(255, 255, 255, 0.075) !important;
+        box-shadow: 0 0.125rem 0.25rem
+          rgba(255, 255, 255, 0.075) !important;
         &:hover {
           border-color: var(--color-primary) !important;
           color: var(--color-white) !important;
@@ -179,7 +181,9 @@
                 border-color: var(--color-black);
               }
               &:hover {
-                border-color: var(--color-primary) !important;
+                border-color: var(
+                  --color-primary
+                ) !important;
                 color: var(--color-white) !important;
               }
             }

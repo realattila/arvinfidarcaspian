@@ -3,7 +3,11 @@
 .footer {
   &__action {
     position: relative;
-    background: linear-gradient(145deg, var(--color-primary), var(--color-pink));
+    background: linear-gradient(
+      145deg,
+      var(--color-primary),
+      var(--color-pink)
+    );
     height: 45rem;
     display: flex;
     align-items: center;
@@ -82,13 +86,13 @@
     height: 6.6rem;
     width: auto;
     &__container {
-      width: 50%;
+      margin-right: auto;
     }
   }
   &__social {
     display: flex;
     align-items: center;
-    width: 100%;
+
     justify-content: center;
     &__item {
       &,
@@ -115,7 +119,7 @@
     }
   }
   &__copyright {
-    width: 50%;
+    margin-left: auto;
     &__p {
       font-size: 1.4rem;
       text-align: right;

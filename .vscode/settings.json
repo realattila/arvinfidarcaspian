@@ -13,5 +13,12 @@
             "server": "localhost",
             "username": "root"
         }
-    ]
+    ],
+    "prettier.printWidth": 50,
+    "prettier.disableLanguages": [
+        "javascripts"
+    ],
+    "prettier.jsxBracketSameLine": true,
+    "prettier.jsxSingleQuote": true,
+    "prettier.singleQuote": true
 }

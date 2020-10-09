@@ -9,6 +9,7 @@ import './Contact.scss';
 
 import Header from '../Header';
 import Footer from '../Footer';
+import assets from '../../assets';
 
 const Contact = () => {
   // useState
@@ -22,7 +23,12 @@ const Contact = () => {
     backToTop();
   }, []);
   // use Form
-  const { register, handleSubmit, errors, setValue } = useForm();
+  const {
+    register,
+    handleSubmit,
+    errors,
+    setValue,
+  } = useForm();
 
   // handle submit
   const submitForm = async (data) => {
@@ -38,9 +44,17 @@ const Contact = () => {
     console.log('this is response ', response);
 
     if (response.status === 200) {
-      setState({ ...state, pending: false, message: '✓ پیام شما با موفقیت ارسال گردید' });
+      setState({
+        ...state,
+        pending: false,
+        message: '✓ پیام شما با موفقیت ارسال گردید',
+      });
     } else {
-      setState({ ...state, pending: false, message: '✕ ارسال پیام شما با خطا مواجه شد' });
+      setState({
+        ...state,
+        pending: false,
+        message: '✕ ارسال پیام شما با خطا مواجه شد',
+      });
     }
     setValue('name', '');
     setValue('email', '');
@@ -54,11 +68,17 @@ const Contact = () => {
       <div className='page__header'>
         <h1 className='page__header__title'>تماس با ما</h1>
         <div className='page__header__breadcrumb'>
-          <Link to='/' className='page__header__breadcrumb__link'>
+          <Link
+            to='/'
+            className='page__header__breadcrumb__link'>
             خانه
           </Link>
-          <span className='page__header__breadcrumb__span'>/</span>
-          <Link to='/contact' className='page__header__breadcrumb__link page__header__breadcrumb__current'>
+          <span className='page__header__breadcrumb__span'>
+            /
+          </span>
+          <Link
+            to='/contact'
+            className='page__header__breadcrumb__link page__header__breadcrumb__current'>
             تماس با ما
           </Link>
         </div>
@@ -71,8 +91,13 @@ const Contact = () => {
                 <div className='contact__item__icon'>
                   <i className='fal fa-headphones contact__item__icon__i'></i>
                 </div>
-                <h4 className='contact__item__head'>آدرس</h4>
-                <p className='contact__item__text'>تهران، میدان آزادی، خیابان امام، خیابان امام خیمینی، کوچه سبزواری 3، پلاک 14</p>
+                <h4 className='contact__item__head'>
+                  آدرس
+                </h4>
+                <p className='contact__item__text'>
+                  تهران، میدان آزادی، خیابان امام، خیابان
+                  امام خیمینی، کوچه سبزواری 3، پلاک 14
+                </p>
               </div>
             </div>
             <div className='contact__item '>
@@ -80,12 +105,13 @@ const Contact = () => {
                 <div className='contact__item__icon'>
                   <i className='fal fa-envelope contact__item__icon__i'></i>
                 </div>
-                <h4 className='contact__item__head'>آدرس ایمیل</h4>
-                <a className='contact__item__link' href='email:98atila@gmail.com'>
-                  98atila@gmail.com
-                </a>
-                <a className='contact__item__link' href='tel:09038276860'>
-                  98atila@gmail.com
+                <h4 className='contact__item__head'>
+                  آدرس ایمیل
+                </h4>
+                <a
+                  className='contact__item__link'
+                  href='email:avand.fidar.caspian@gmail.com'>
+                  avand.fidar.caspian@gmail.com
                 </a>
               </div>
             </div>
@@ -94,12 +120,18 @@ const Contact = () => {
                 <div className='contact__item__icon'>
                   <i className='fal fa-map-marker-alt contact__item__icon__i'></i>
                 </div>
-                <h4 className='contact__item__head'>شماره های تماس</h4>
-                <a className='contact__item__link' href='tel:09038276860'>
-                  +98 903 827 6860
+                <h4 className='contact__item__head'>
+                  شماره های تماس
+                </h4>
+                <a
+                  className='contact__item__link'
+                  href='tel:0113474001'>
+                  011 347 4001
                 </a>
-                <a className='contact__item__link' href='tel:09038276860'>
-                  +98 903 827 6860
+                <a
+                  className='contact__item__link'
+                  href='tel:0113474003'>
+                  011 347 4003
                 </a>
               </div>
             </div>
@@ -108,31 +140,46 @@ const Contact = () => {
                 <div className='contact__item__icon'>
                   <i className='fal fa-share-alt-square contact__item__icon__i'></i>
                 </div>
-                <h4 className='contact__item__head'>شبکه های مجازی</h4>
+                <h4 className='contact__item__head'>
+                  شبکه های مجازی
+                </h4>
 
-                <p className='contact__item__social'>
-                  <p className='ltr'>+98 903 827 6860</p>
+                <div className='contact__item__social'>
+                  <p className='ltr'>0933 460 3252</p>
                   <br />
                   <span className='rtl'>تلگرام: </span>
-                </p>
-                <p className='contact__item__social'>
-                  <p className='ltr'>+98 903 827 6860</p>
-                  <span className='rtl'>تلگرام: </span>
-                </p>
+                </div>
+                <div className='contact__item__social'>
+                  <p className='ltr'>0933 460 3252</p>
+                  <span className='rtl'>واتس آپ: </span>
+                </div>
               </div>
             </div>
           </div>
-          <p className='contact__item__footer'>ساعات پاسخگویی همه روز از ساعت 8 تا 20</p>
+          <p className='contact__item__footer'>
+            ساعات پاسخگویی همه روز از ساعت 8 تا 20
+          </p>
         </div>
       </div>
       <div className='container contact__container contact__container--form'>
         <div className='row contact__form__row'>
           <div className='contact__form__image'>
-            <img className='contact__form__image__img' src='/images/contact-form.jpg' />
+            <img
+              className='contact__form__image__img'
+              src={assets.contactForm}
+            />
           </div>
-          <form onSubmit={handleSubmit(submitForm)} className='contact__form__form'>
-            <h2 className='contact__form__title'>پیام بگذارید</h2>
-            <p className='contact__form__text'>شما می توانید از طریق فرم زیر با ما ارتباط برقرار کنید، ما مشتاقانه منتظر پیام شما هستیم و در اصرع وقت پاسخ شما را خواهیم داد.</p>
+          <form
+            onSubmit={handleSubmit(submitForm)}
+            className='contact__form__form'>
+            <h2 className='contact__form__title'>
+              پیام بگذارید
+            </h2>
+            <p className='contact__form__text'>
+              شما می توانید از طریق فرم زیر با ما ارتباط
+              برقرار کنید، ما مشتاقانه منتظر پیام شما هستیم
+              و در اصرع وقت پاسخ شما را خواهیم داد.
+            </p>
             <div className='contact__form__inputs'>
               <div className='contact__form__form-group'>
                 <input
@@ -148,8 +195,12 @@ const Contact = () => {
                   autoComplete='off'
                   placeholder='نام شما *'
                 />
-                {/* <label className='contact__form__label'>نام شما</label> */}
-                {errors.name?.message && <div className='contact__form__error'>{errors.name.message}</div>}
+
+                {errors.name?.message && (
+                  <div className='contact__form__error'>
+                    {errors.name.message}
+                  </div>
+                )}
               </div>
 
               <div className='contact__form__form-group'>
@@ -170,8 +221,12 @@ const Contact = () => {
                   autoComplete='off'
                   placeholder='ایمیل شما *'
                 />
-                {/* <label className='contact__form__label'>ایمیل شما</label> */}
-                {errors.email?.message && <div className='contact__form__error'>{errors.email.message}</div>}
+
+                {errors.email?.message && (
+                  <div className='contact__form__error'>
+                    {errors.email.message}
+                  </div>
+                )}
               </div>
 
               <div className='contact__form__form-group'>
@@ -188,8 +243,12 @@ const Contact = () => {
                   autoComplete='off'
                   placeholder='موضوع پیام *'
                 />
-                {/* <label className='contact__form__label'>ایمیل شما</label> */}
-                {errors.subject?.message && <div className='contact__form__error'>{errors.subject.message}</div>}
+
+                {errors.subject?.message && (
+                  <div className='contact__form__error'>
+                    {errors.subject.message}
+                  </div>
+                )}
               </div>
 
               <div className='contact__form__form-group'>
@@ -204,19 +263,31 @@ const Contact = () => {
                   autoComplete='off'
                   placeholder='پیام شما *'
                   className='contact__form__input-area'></textarea>
-                {/* <label className='contact__form__label'>پیام شما</label> */}
-                {errors.message?.message && <div className='contact__form__error'>{errors.message.message}</div>}
+
+                {errors.message?.message && (
+                  <div className='contact__form__error'>
+                    {errors.message.message}
+                  </div>
+                )}
               </div>
               {!state.pending ? (
-                <button type='submit' className='contact__form__submit '>
+                <button
+                  type='submit'
+                  className='contact__form__submit '>
                   ارسال پیام
                 </button>
               ) : (
-                <button type='submit' className='contact__form__submit contact__form__submit--pending'>
+                <button
+                  type='submit'
+                  className='contact__form__submit contact__form__submit--pending'>
                   درحال ارسال پیام
                 </button>
               )}
-              {state.message != null && <div className='contact__form__message'>{state.message}</div>}
+              {state.message != null && (
+                <div className='contact__form__message'>
+                  {state.message}
+                </div>
+              )}
             </div>
           </form>
         </div>

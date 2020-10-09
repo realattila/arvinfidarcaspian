@@ -8,6 +8,7 @@ import './About.scss';
 // import components
 import Header from '../Header';
 import Footer from '../Footer';
+import Customers from '../Customers';
 
 const About = (props) => {
   // useState
@@ -23,12 +24,16 @@ const About = (props) => {
     if (window.pageYOffset > CountUpBoxTop - 750) {
       setState({ ...state, showCount: true });
     }
-    const scrollCallBack = window.addEventListener('scroll', () => {
-      if (window.pageYOffset > CountUpBoxTop - 750) {
-        setState({ ...state, showCount: true });
+    const scrollCallBack = window.addEventListener(
+      'scroll',
+      () => {
+        if (window.pageYOffset > CountUpBoxTop - 750) {
+          setState({ ...state, showCount: true });
+        }
       }
-    });
-    return () => window.removeEventListener('scroll', scrollCallBack);
+    );
+    return () =>
+      window.removeEventListener('scroll', scrollCallBack);
   }, []);
   const countUpBox = useRef(null);
 
@@ -39,11 +44,17 @@ const About = (props) => {
       <div className='page__header'>
         <h1 className='page__header__title'>درباره ما</h1>
         <div className='page__header__breadcrumb'>
-          <Link to='/' className='page__header__breadcrumb__link'>
+          <Link
+            to='/'
+            className='page__header__breadcrumb__link'>
             خانه
           </Link>
-          <span className='page__header__breadcrumb__span'>/</span>
-          <Link to='/contact' className='page__header__breadcrumb__link page__header__breadcrumb__current'>
+          <span className='page__header__breadcrumb__span'>
+            /
+          </span>
+          <Link
+            to='/contact'
+            className='page__header__breadcrumb__link page__header__breadcrumb__current'>
             درباره ما
           </Link>
         </div>
@@ -51,74 +62,91 @@ const About = (props) => {
       <div className='container'>
         <div className='row'>
           <div className='about__item about__about'>
-            <h2 className='about__about__title'>درباره ما</h2>
+            <h2 className='about__about__title'>
+              درباره ما
+            </h2>
             <p className='about__about__text'>
-              لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان
-              امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
+              مجموعه آوند فیدار کاسپین در اسفند ماه سال ۹۷
+              در استان مازندران ، شهرستان نکا تاسیس شد . این
+              مجموعه با هدف توسعه و خدمات به کارخانه جات
+              صنعتی برای تولید قطعات خاص فلزی در ابعاد و
+              اندازه های مختلف با بهره بردن از ماشین آلات
+              روز دنیا و تیم های متخصص در زمینه قالب سازی و
+              تولید قدم برداشته است و از سال ۹۷ تا کنون بیش
+              از ۵۰ شرکت مختلف به این مجموعه اعتماد کرده و
+              گروه آوند فیدار کاسپین تلاش نموده که با بهترین
+              کیفیت ممکن و تعهد کاری منظم کمکی هرچند کوچک به
+              صنعت کشور داشته باشد .
             </p>
           </div>
         </div>
-        <div className='row about__item about__fact' ref={countUpBox}>
-          <h2 className='about__fact__title'>حقایقی از ما</h2>
+        <div
+          className='row about__item about__fact'
+          ref={countUpBox}>
+          <h2 className='about__fact__title'>
+            حقایقی از ما
+          </h2>
           <div className='row'>
             <div className='about__fact__item'>
               <h4 className='about__fact__item__title'>
-                {state.showCount && <CountUp start={0} end={200} useEasing={true} className='about__fact__item__count' />}
+                {state.showCount && (
+                  <CountUp
+                    start={0}
+                    end={3000000}
+                    useEasing={true}
+                    className='about__fact__item__count'
+                  />
+                )}
 
-                <span className='about__fact__item__plus'>+</span>
+                <span className='about__fact__item__plus'>
+                  +
+                </span>
               </h4>
-              <p className='about__fact__item__text'>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
+              <p className='about__fact__item__text'>
+                قطعه در ماه
+              </p>
             </div>
             <div className='about__fact__item'>
               <h4 className='about__fact__item__title'>
-                {state.showCount && <CountUp start={0} end={200} useEasing={true} className='about__fact__item__count' />}
+                {state.showCount && (
+                  <CountUp
+                    start={0}
+                    end={50}
+                    useEasing={true}
+                    className='about__fact__item__count'
+                  />
+                )}
 
-                <span className='about__fact__item__plus'>+</span>
+                <span className='about__fact__item__plus'>
+                  +
+                </span>
               </h4>
-              <p className='about__fact__item__text'>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
+              <p className='about__fact__item__text'>
+                مشتری در ماه
+              </p>
             </div>
             <div className='about__fact__item'>
               <h4 className='about__fact__item__title'>
-                {state.showCount && <CountUp start={0} end={200} useEasing={true} className='about__fact__item__count' />}
+                {state.showCount && (
+                  <CountUp
+                    start={0}
+                    end={100000}
+                    useEasing={true}
+                    className='about__fact__item__count'
+                  />
+                )}
 
-                <span className='about__fact__item__plus'>+</span>
+                <span className='about__fact__item__plus'>
+                  +
+                </span>
               </h4>
-              <p className='about__fact__item__text'>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
+              <p className='about__fact__item__text'>
+                قطعه در روز
+              </p>
             </div>
           </div>
         </div>
-        <div className=' about__item about__logos'>
-          <h2 className='about__fact__title'>برخی از مشتریان ما</h2>
-          <div className='row'>
-            <div className='about__logos__item'>
-              <img className='about__logos__item__img' src='logo1' src='/images/sample-logo.png' />
-            </div>
-            <div className='about__logos__item'>
-              <img className='about__logos__item__img' src='logo2' src='/images/sample-logo.png' />
-            </div>
-            <div className='about__logos__item'>
-              <img className='about__logos__item__img' src='logo3' src='/images/sample-logo.png' />
-            </div>
-            <div className='about__logos__item'>
-              <img className='about__logos__item__img' src='logo4' src='/images/sample-logo.png' />
-            </div>
-            <div className='about__logos__item'>
-              <img className='about__logos__item__img' src='logo5' src='/images/sample-logo.png' />
-            </div>
-            <div className='about__logos__item'>
-              <img className='about__logos__item__img' src='logo6' src='/images/sample-logo.png' />
-            </div>
-            <div className='about__logos__item'>
-              <img className='about__logos__item__img' src='logo7' src='/images/sample-logo.png' />
-            </div>
-            <div className='about__logos__item'>
-              <img className='about__logos__item__img' src='logo8' src='/images/sample-logo.png' />
-            </div>
-            <div className='about__logos__item'>
-              <img className='about__logos__item__img' src='logo9' src='/images/sample-logo.png' />
-            </div>
-          </div>
-        </div>
+        <Customers className='about__item ' />
       </div>
       <Footer />
     </div>

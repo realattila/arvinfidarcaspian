@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import assets from '../../assets';
 import backToTop from '../../backToTop';
 
 // import components
@@ -7,9 +8,12 @@ import Footer from '../Footer';
 import Modal from '../Modal';
 import Loading from '../Loading';
 
+import Customers from '../Customers';
+
 // import styles
 import './Home.scss';
 import { Link } from 'react-router-dom';
+import WhyUs from '../WhyUs';
 
 const Home = () => {
   const fakeData = [
@@ -17,19 +21,22 @@ const Home = () => {
       id: 1,
       title: 'سنسور لنت ترمز',
       src: '/images/fakeitemjpg.jpg',
-      description: 'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.',
+      description:
+        'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.',
     },
     {
       id: 2,
       title: 'سنسور لنت ترمز',
       src: '/images/fakeitemjpg.jpg',
-      description: 'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.',
+      description:
+        'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.',
     },
     {
       id: 3,
       title: 'سنسور لنت ترمز',
       src: '/images/fakeitemjpg.jpg',
-      description: 'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.',
+      description:
+        'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.',
     },
   ];
 
@@ -37,24 +44,31 @@ const Home = () => {
     showModal: false,
     data: null,
     loading: true,
+    videoSrc: null,
   });
 
   useEffect(() => {
     if (Loading) {
       setTimeout(() => {
-        setState({ ...state, loading: false });
+        setState({
+          ...state,
+          loading: false,
+          videoSrc: assets.HomeVideo,
+        });
       }, 1750);
     }
     backToTop();
-  }, []);
-
+  }, [state.loading]);
   if (state.loading) {
     return <Loading />;
   }
-
   // on click product Item
   const onClickproductItem = (id) => {
-    setState({ ...state, showModal: true, data: fakeData.filter((data) => data.id === id) });
+    setState({
+      ...state,
+      showModal: true,
+      data: fakeData.filter((data) => data.id === id),
+    });
   };
 
   // on Close modal
@@ -67,11 +81,19 @@ const Home = () => {
       <div className='products__item' key={data.id}>
         <div className='products__item__container'>
           <div className='products__item__img__box'>
-            <img className='products__item__img' src={data.src} alt={`item-${data.id}`} />
+            <img
+              className='products__item__img'
+              src={data.src}
+              alt={`item-${data.id}`}
+            />
           </div>
           <div className='products__item__content'>
-            <span className='products__item__content__span'>{data.title}</span>
-            <button className='products__item__content__btn' onClick={() => onClickproductItem(data.id)}>
+            <span className='products__item__content__span'>
+              {data.title}
+            </span>
+            <button
+              className='products__item__content__btn'
+              onClick={() => onClickproductItem(data.id)}>
               سفارش دهید
             </button>
           </div>
@@ -85,8 +107,12 @@ const Home = () => {
       return (
         <div className='products__modal'>
           <div className='products__modal__header'>
-            <h3 className='products__modal__header__title'>ثبت سفارش</h3>
-            <button className='products__modal__header__close' onClick={closeModal}>
+            <h3 className='products__modal__header__title'>
+              ثبت سفارش
+            </h3>
+            <button
+              className='products__modal__header__close'
+              onClick={closeModal}>
               <i className='fal fa-times products__modal__header__close__icon'></i>
             </button>
           </div>
@@ -102,7 +128,15 @@ const Home = () => {
         <div className='home__intro'>
           <div className='home__intro__video__container'>
             <div className='home__intro__video__box'>
-              <video className='home__intro__video' src='/videos/homeIntro.mp4' type='video/mp4' autoPlay loop></video>
+              <video
+                className='home__intro__video'
+                autoPlay
+                loop>
+                <source
+                  src={state.videoSrc}
+                  type='video/mp4'
+                />
+              </video>
             </div>
           </div>
           <h1 className='home__intro__title text-shadow--lg'>
@@ -113,21 +147,36 @@ const Home = () => {
 
         <div className='products home__products'>
           <h2 className='products__title'>محصولات ما</h2>
-          <div className='products__subtitle'>شما می توانید هر محصولاتی را مد منظرات هست همین الان سفارش دهید</div>
+          <div className='products__subtitle'>
+            شما می توانید هر محصولاتی را مد منظرات هست همین
+            الان سفارش دهید
+          </div>
           <div className='container'>
             <div className='row'>
               {itemProductRender()}
               <div className='home__products__all'>
-                <Link className='home__products__all__link' to='/products'>
+                <Link
+                  className='home__products__all__link'
+                  to='/products'>
                   <span>مشاهده تمامی محصولات</span>
                 </Link>
               </div>
-              <Modal show={state.showModal} closeModal={closeModal}>
+              <Modal
+                show={state.showModal}
+                closeModal={closeModal}>
                 {moldalDataRender()}
               </Modal>
             </div>
           </div>
         </div>
+        <WhyUs
+          className='home__logos'
+          TitleClassName='home__item__title'
+        />
+        <Customers
+          className='home__logos'
+          TitleClassName='home__item__title'
+        />
       </div>
       <Footer action />
     </>
