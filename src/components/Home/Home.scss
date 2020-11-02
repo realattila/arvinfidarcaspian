@@ -46,7 +46,7 @@
     }
   }
   &__products {
-    padding: 9.2rem 0 !important;
+    margin: 8rem 0 !important;
     &__all {
       width: 100%;
       display: flex;
@@ -74,7 +74,8 @@
               var(--color-pink)
             );
             color: var(--color-white);
-            border: 0.1rem solid var(--color-white);
+            border: 0.1rem solid
+              var(--color-white);
 
             transform: translateY(-0.4rem);
           }
@@ -83,8 +84,7 @@
     }
   }
   &__logos {
-    padding-top: 4.1rem;
-    padding-bottom: 9.2rem;
+    margin: 8rem 0;
   }
 }
 
@@ -114,6 +114,9 @@
       &__video {
         width: 320%;
       }
+    }
+    &__products {
+      margin: 4.8rem 0 !important;
     }
   }
 }

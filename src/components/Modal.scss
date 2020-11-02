@@ -6,10 +6,25 @@
   width: 100%;
   top: 0;
   z-index: 10;
+
   &--show {
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  &__close {
+    position: absolute;
+    top: 1.6rem;
+    right: 1.6rem;
+    z-index: 2;
+    cursor: pointer;
+    background-color: var(--color-black-4);
+    padding: 0.4rem;
+    border-radius: 50%;
+    &__icon {
+      color: var(--color-white);
+      font-size: 3.6rem;
+    }
   }
   &__background {
     position: absolute;
@@ -26,6 +41,15 @@
     overflow: hidden;
     &--show {
       animation: fadeIn 0.2s ease-out;
+      background-color: transparent;
+    }
+    &--full {
+      max-width: 100%;
+      border-radius: 0;
+    }
+    &--auto {
+      max-width: unset;
+      width: auto;
     }
   }
 }

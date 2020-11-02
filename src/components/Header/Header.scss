@@ -1,0 +1,370 @@
+@import '../../mixin';
+.header {
+  position: absolute;
+  padding: 0 4.8rem;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 3;
+
+  &__wrapper {
+    transition: all 0.4s ease-out;
+    padding: 4.8rem 0;
+    display: flex;
+
+    width: 100%;
+    align-items: center;
+  }
+  &__logo {
+    position: relative;
+    margin-right: auto;
+    &__img {
+      height: 7.2rem;
+      width: auto;
+    }
+  }
+  &__menu {
+    display: flex;
+    align-items: center;
+    &__toggle {
+      padding: 2rem 1rem;
+      text-align: center;
+      cursor: pointer;
+      display: none;
+      &__span {
+        width: 2.4rem;
+        height: 0.2rem;
+        background-color: var(--color-white);
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        transition: all 0.2s ease-out;
+        &::before,
+        &::after {
+          transition: all 0.2s ease-out;
+          content: '';
+          display: block;
+          width: inherit;
+          height: inherit;
+          background-color: var(--color-white);
+          position: absolute;
+        }
+        &::before {
+          left: 0;
+          top: -0.8rem;
+        }
+        &::after {
+          left: 0;
+          top: 0.8rem;
+        }
+      }
+    }
+    &__list {
+      list-style: none;
+      display: flex;
+    }
+    &__item {
+      display: flex;
+      justify-content: center;
+    }
+    &__link {
+      &,
+      &:visited,
+      &:active {
+        font-size: 1.6rem;
+        color: var(--color-white);
+        transition: all 0.2s ease-out;
+        padding: 0.8rem;
+        margin: 0 0.8rem;
+        position: relative;
+      }
+      &::after {
+        transition: all 0.2s ease-out;
+        display: block;
+        content: '';
+        width: 0;
+        height: 0.1rem;
+        background-color: var(--color-primary);
+        text-align: right;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+      }
+
+      &:hover {
+        color: var(--color-primary);
+        &::after {
+          width: calc(100% - 1.6rem);
+        }
+      }
+      &--action {
+        &,
+        &:visited,
+        &:active {
+          border: 0.1rem solid var(--color-white);
+          border-radius: 0.6rem;
+        }
+        &:hover {
+          background-color: var(--color-primary);
+          color: var(--color-white);
+          border-color: var(--color-primary);
+          box-shadow: 0 0.125rem 0.25rem
+            rgba(0, 0, 0, 0.075) !important;
+        }
+        &::after {
+          display: none;
+        }
+      }
+    }
+
+    // cart
+    &__cart {
+      font-size: 1.6rem;
+      color: var(--color-white);
+      transition: all 0.2s ease-out;
+      padding: 0.8rem;
+      margin: 0 0.8rem;
+      position: relative;
+      cursor: pointer;
+      &--mobile {
+        display: none;
+      }
+      // on hover cart
+      &:hover {
+        & .header__menu__cart__box {
+          transform: scale(1) translate(-50%, 0);
+        }
+      }
+
+      // cart Icon
+      &__icon {
+        font-size: 2.4rem;
+      }
+
+      // cart span
+      &__span {
+        background-color: var(--color-primary);
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 1.5rem;
+        width: 1.5rem;
+        text-align: center;
+        border-radius: 50%;
+        font-size: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: var(--color-white);
+      }
+      // hover div box
+      &__box {
+        position: absolute;
+        transition: all 0.2s ease-out;
+        transform-origin: left center;
+        left: 50%;
+        transform: scale(0) translate(-50%, 0);
+        top: 0;
+        min-width: 52rem;
+        padding-top: 7.2rem;
+      }
+
+      // hover content
+      &__content {
+        background-color: var(--color-white);
+        color: var(--color-black-2);
+        padding: 1.6rem;
+
+        border-radius: 0.4rem;
+      }
+
+      // empty cart
+      &__empty {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        &__text {
+        }
+        &__link {
+          &,
+          &:visited,
+          &:active {
+            padding: 0.4rem 0.8rem;
+            margin-top: 1.6rem;
+          }
+        }
+      }
+      // cart item
+      &__item {
+        direction: rtl;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+        border-bottom: 0.1rem dotted
+          var(--color-pink);
+        padding-bottom: 0.4rem;
+        &:not(:last-child) {
+          margin-bottom: 1.6rem;
+        }
+
+        &__remove {
+          padding: 0.4rem;
+        }
+        &__text {
+          flex: 1;
+          text-align: right;
+        }
+        &__amount {
+          margin-right: 1.6rem;
+          padding: 0 0.4rem;
+          &--no-margin {
+            margin-right: 0;
+          }
+        }
+      }
+      &__link {
+        &,
+        &:visited,
+        &:active {
+          padding: 0.8rem 1.6rem;
+          margin: 0 auto;
+          margin-top: 0px;
+          display: flex;
+          width: max-content;
+          margin-top: 2.4rem;
+        }
+      }
+    }
+  }
+
+  &--sticky {
+    position: fixed;
+    background-color: var(--color-white);
+    & .header__wrapper {
+      padding: 0;
+    }
+    & .header__menu__cart {
+      color: var(--color-back-2);
+    }
+    & .header__menu__link {
+      color: var(--color-back-2);
+      &:hover {
+        color: var(--color-primary) !important;
+      }
+      &--action {
+        border-color: var(--color-black);
+        box-shadow: 0 0.125rem 0.25rem
+          rgba(255, 255, 255, 0.075) !important;
+        &:hover {
+          border-color: var(
+            --color-primary
+          ) !important;
+          color: var(--color-white) !important;
+        }
+      }
+    }
+    & .header__menu__toggle__span {
+      background-color: var(--color-black);
+      &::after,
+      &::before {
+        background-color: var(--color-black);
+      }
+    }
+  }
+}
+
+@include res(tab-land) {
+  .header {
+    padding: 0 2.4rem;
+    &__wrapper {
+      padding: 2.4rem 0;
+    }
+
+    // menu
+    &__menu {
+      &__list {
+        position: fixed;
+        top: 0;
+        height: 100vh;
+        flex-direction: column;
+        background: var(--color-white);
+        align-content: center;
+        justify-content: center;
+        width: 30rem;
+        right: 0;
+        transform: scaleX(0);
+        transition: all 0.2s ease-out;
+        transform-origin: right center;
+        &--show {
+          transform: scaleX(1);
+          & .header__menu__link {
+            &,
+            &:visited,
+            &:active {
+              color: var(--color-black);
+            }
+            &--action {
+              &:visited,
+              &:active {
+                border-color: var(--color-black);
+              }
+              &:hover {
+                border-color: var(
+                  --color-primary
+                ) !important;
+                color: var(
+                  --color-white
+                ) !important;
+              }
+            }
+          }
+        }
+      }
+
+      // cart
+      &__cart {
+        display: none;
+        &--mobile {
+          display: unset;
+        }
+      }
+      // header item
+      &__item {
+        margin: 1.6rem 0;
+        text-align: center;
+      }
+      &__toggle {
+        display: unset;
+        z-index: 1000;
+        &__span {
+          &--toggle {
+            background-color: transparent;
+            &::before {
+              transform: rotate(130deg);
+              top: 0;
+              background-color: var(
+                --color-black
+              );
+            }
+            &::after {
+              transform: rotate(-135deg);
+              top: 0;
+              background-color: var(
+                --color-black
+              );
+            }
+          }
+        }
+      }
+    }
+
+    // srticky
+    &--sticky {
+      & .header__menu__toggle__span--toggle {
+        background-color: transparent;
+      }
+    }
+  }
+}

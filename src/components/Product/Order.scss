@@ -1,0 +1,28 @@
+@import '../../mixin';
+.product__order {
+  max-width: 60rem;
+  padding: 4rem;
+  direction: rtl;
+  background-color: var(--color-white);
+  margin: 0 auto;
+  border-radius: 0.4rem;
+  min-width: 60rem;
+}
+
+@include res(tab-land) {
+  .product__order {
+    padding: 2rem;
+  }
+}
+
+@include res(tab-port) {
+  .product__order {
+    min-width: 50rem;
+  }
+}
+
+@include res(phone) {
+  .product__order {
+    min-width: 35rem;
+  }
+}

@@ -53,6 +53,9 @@
 
 @include res(tab-port) {
   .about {
+    &__item {
+      padding: 4.8rem 0;
+    }
     &__fact {
       &__title {
         margin-bottom: 2.4rem;

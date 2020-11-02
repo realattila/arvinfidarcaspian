@@ -10,7 +10,7 @@
     }
   }
   &__box {
-    padding: 15rem 0;
+    padding: 10rem 0;
   }
   &__item {
     width: 33.33%;
@@ -105,12 +105,19 @@
       width: fit-content;
       padding: 1rem;
       border-radius: 5rem;
-      border-bottom: 0.1rem solid var(--color-pink);
+      border-bottom: 0.1rem solid
+        var(--color-pink);
     }
   }
   &__form {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+    min-height: 66rem;
     &__row {
-      padding: 10rem 0;
+      padding: 8rem 0;
     }
     &__image {
       height: 100%;
@@ -122,14 +129,7 @@
         width: 100%;
       }
     }
-    &__form {
-      width: 50%;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      text-align: right;
-      min-height: 66rem;
-    }
+
     &__title {
       font-size: 3.6rem;
       margin-bottom: 2.4rem;
@@ -238,6 +238,14 @@
 
 @include res(tab-land) {
   .contact {
+    &__box {
+      padding: 4.8rem 0;
+    }
+    &__form {
+      &__row {
+        padding: 4.8rem 0;
+      }
+    }
     &__item {
       width: 50%;
     }
@@ -254,13 +262,18 @@
       width: 100%;
     }
     &__form {
+      width: 100%;
+      margin-top: 3.2rem;
+      min-height: auto;
       &__row {
         flex-direction: column;
+        padding: 4.8rem 0;
       }
-      &__image,
-      &__form {
+      &__image {
         width: 100%;
+        padding-right: 0;
       }
+
       &__image {
         padding-right: 0;
       }

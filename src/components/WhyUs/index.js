@@ -5,7 +5,8 @@ import './WhyUs.scss';
 const WhyUs = ({ className, TitleClassName }) => {
   return (
     <div className={`why-us ${className}`}>
-      <h2 className={`why-us__title ${TitleClassName}`}>
+      <h2
+        className={`why-us__title ${TitleClassName}`}>
         چرا آوند فیدار کاسپین
       </h2>
       <div className='row'>
@@ -32,8 +33,8 @@ const WhyUs = ({ className, TitleClassName }) => {
             تحویل رایگان
           </h4>
           <p className='why-us__item__content'>
-            محصولات خریداری شده ، به صورت رایگان از شهر مبدا
-            تا شهر مقصد ارسال خواهد شد
+            محصولات خریداری شده ، به صورت رایگان
+            از شهر مبدا تا شهر مقصد ارسال خواهد شد
           </p>
         </div>
 
@@ -50,8 +51,8 @@ const WhyUs = ({ className, TitleClassName }) => {
             تحویل به موقع
           </h4>
           <p className='why-us__item__content'>
-            با همکاری مشتریان عزیز قطعات مصرفی در زمان مقرر
-            شده به ایشان تحویل خواهد شد
+            با همکاری مشتریان عزیز قطعات مصرفی در
+            زمان مقرر شده به ایشان تحویل خواهد شد
           </p>
         </div>
 
@@ -72,8 +73,9 @@ const WhyUs = ({ className, TitleClassName }) => {
             100 درصد رضایت
           </h4>
           <p className='why-us__item__content'>
-            تا به امروز مفتخریم که توانسته ایم، رضایت کامل
-            مشتری را از محصولات خود داشته باشیم
+            تا به امروز مفتخریم که توانسته ایم،
+            رضایت کامل مشتری را از محصولات خود
+            داشته باشیم
           </p>
         </div>
 
@@ -92,9 +94,9 @@ const WhyUs = ({ className, TitleClassName }) => {
             بالاترین کیفیت
           </h4>
           <p className='why-us__item__content'>
-            گروه آوند فیدار کاسپین از بهترین و مرغوبترین
-            مواد اولیه و با بهره از دانش روز بهترین کیفیت را
-            ارائه خواهد داد
+            گروه آوند فیدار کاسپین از بهترین و
+            مرغوبترین مواد اولیه و با بهره از دانش
+            روز بهترین کیفیت را ارائه خواهد داد
           </p>
         </div>
 
@@ -116,8 +118,9 @@ const WhyUs = ({ className, TitleClassName }) => {
             قیمت مناسب
           </h4>
           <p className='why-us__item__content'>
-            هدف گروه آوند فیدار کاسپین ارائه قطعات با کیفیت
-            به همراه قیمت مناسب بوده و خواهد بود
+            هدف گروه آوند فیدار کاسپین ارائه قطعات
+            با کیفیت به همراه قیمت مناسب بوده و
+            خواهد بود
           </p>
         </div>
       </div>

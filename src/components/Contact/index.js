@@ -1,4 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, {
+  useEffect,
+  useState,
+} from 'react';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import backToTop from '../../backToTop';
@@ -10,12 +13,12 @@ import './Contact.scss';
 import Header from '../Header';
 import Footer from '../Footer';
 import assets from '../../assets';
+import Notification from '../Notification';
 
 const Contact = () => {
   // useState
   const [state, setState] = useState({
     pending: false,
-    message: null,
   });
 
   // useEffect
@@ -33,27 +36,36 @@ const Contact = () => {
   // handle submit
   const submitForm = async (data) => {
     setState({ ...state, pending: true });
-    let formData = new FormData();
 
-    formData.append('name', data.name);
-    formData.append('email', data.email);
-    formData.append('subject', data.subject);
-    formData.append('message', data.message);
-
-    const response = await sendMessage(formData);
+    const response = await sendMessage(data);
     console.log('this is response ', response);
 
-    if (response.status === 200) {
+    if (
+      response.status >= 200 &&
+      response.status < 300
+    ) {
+      Notification({
+        type: 'success',
+        title: 'ارسال پیام',
+        message:
+          'پیام شما با موفقیت برای ما ارسال گردید',
+      });
+
       setState({
         ...state,
         pending: false,
-        message: '✓ پیام شما با موفقیت ارسال گردید',
       });
     } else {
+      Notification({
+        type: 'danger',
+        title: 'خطا',
+        message:
+          'متاسفانه خطایی رخ داده است لطفا بعدا امتحان کنید',
+      });
+
       setState({
         ...state,
         pending: false,
-        message: '✕ ارسال پیام شما با خطا مواجه شد',
       });
     }
     setValue('name', '');
@@ -66,7 +78,9 @@ const Contact = () => {
     <div className='contact'>
       <Header />
       <div className='page__header'>
-        <h1 className='page__header__title'>تماس با ما</h1>
+        <h1 className='page__header__title'>
+          تماس با ما
+        </h1>
         <div className='page__header__breadcrumb'>
           <Link
             to='/'
@@ -95,8 +109,8 @@ const Contact = () => {
                   آدرس
                 </h4>
                 <p className='contact__item__text'>
-                  تهران، میدان آزادی، خیابان امام، خیابان
-                  امام خیمینی، کوچه سبزواری 3، پلاک 14
+                  مازندران ، شهرستان نکا ، خیابان
+                  انقلاب ، بعد از نودهک
                 </p>
               </div>
             </div>
@@ -145,13 +159,21 @@ const Contact = () => {
                 </h4>
 
                 <div className='contact__item__social'>
-                  <p className='ltr'>0933 460 3252</p>
+                  <p className='ltr'>
+                    0933 460 3252
+                  </p>
                   <br />
-                  <span className='rtl'>تلگرام: </span>
+                  <span className='rtl'>
+                    تلگرام:{' '}
+                  </span>
                 </div>
                 <div className='contact__item__social'>
-                  <p className='ltr'>0933 460 3252</p>
-                  <span className='rtl'>واتس آپ: </span>
+                  <p className='ltr'>
+                    0933 460 3252
+                  </p>
+                  <span className='rtl'>
+                    واتس آپ:{' '}
+                  </span>
                 </div>
               </div>
             </div>
@@ -166,106 +188,132 @@ const Contact = () => {
           <div className='contact__form__image'>
             <img
               className='contact__form__image__img'
+              alt='عکس فرم تماس'
+              title='عکس فرم تماس'
               src={assets.contactForm}
             />
           </div>
           <form
             onSubmit={handleSubmit(submitForm)}
-            className='contact__form__form'>
+            className='form contact__form'>
             <h2 className='contact__form__title'>
               پیام بگذارید
             </h2>
             <p className='contact__form__text'>
-              شما می توانید از طریق فرم زیر با ما ارتباط
-              برقرار کنید، ما مشتاقانه منتظر پیام شما هستیم
-              و در اصرع وقت پاسخ شما را خواهیم داد.
+              شما می توانید از طریق فرم زیر با ما
+              ارتباط برقرار کنید، ما مشتاقانه
+              منتظر پیام شما هستیم و در اصرع وقت
+              پاسخ شما را خواهیم داد.
             </p>
             <div className='contact__form__inputs'>
-              <div className='contact__form__form-group'>
+              <div className='form__form-group'>
                 <input
                   ref={register({
                     required: {
                       value: true,
-                      message: 'نوشتن نام الزامی است',
+                      message:
+                        'نوشتن نام الزامی است',
                     },
                   })}
                   type='text'
                   name='name'
-                  className='contact__form__input-text'
+                  className='form__input-text'
                   autoComplete='off'
-                  placeholder='نام شما *'
+                  placeholder='نام و نام خانوادگی *'
                 />
 
                 {errors.name?.message && (
-                  <div className='contact__form__error'>
+                  <div className='form__error'>
                     {errors.name.message}
                   </div>
                 )}
               </div>
 
-              <div className='contact__form__form-group'>
+              <div className='form__form-group'>
                 <input
                   ref={register({
                     required: {
                       value: true,
-                      message: 'نوشتن ایمیل الزامی است',
-                    },
-                    pattern: {
-                      value: /^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$/,
-                      message: 'ایمیل صحیح وارد کنید',
+                      message:
+                        'نوشتن شماره تماس الزامی است',
                     },
                   })}
-                  type='text'
-                  name='email'
-                  className='contact__form__input-text'
+                  type='number'
+                  name='number'
+                  className='form__input-text'
                   autoComplete='off'
-                  placeholder='ایمیل شما *'
+                  placeholder='شماره تماس *'
                 />
 
                 {errors.email?.message && (
-                  <div className='contact__form__error'>
+                  <div className='form__error'>
                     {errors.email.message}
                   </div>
                 )}
               </div>
 
-              <div className='contact__form__form-group'>
+              <div className='form__form-group'>
+                <input
+                  ref={register({
+                    pattern: {
+                      value: /^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$/,
+                      message:
+                        'ایمیل صحیح وارد کنید',
+                    },
+                  })}
+                  type='email'
+                  name='email'
+                  className='form__input-text'
+                  autoComplete='off'
+                  placeholder='ایمیل'
+                />
+
+                {errors.email?.message && (
+                  <div className='form__error'>
+                    {errors.email.message}
+                  </div>
+                )}
+              </div>
+
+              <div className='form__form-group'>
                 <input
                   ref={register({
                     required: {
                       value: true,
-                      message: 'نوشتن موضوع الزامی است',
+                      message:
+                        'نوشتن موضوع الزامی است',
                     },
                   })}
                   type='text'
                   name='subject'
-                  className='contact__form__input-text'
+                  className='form__input-text'
                   autoComplete='off'
                   placeholder='موضوع پیام *'
                 />
 
                 {errors.subject?.message && (
-                  <div className='contact__form__error'>
+                  <div className='form__error'>
                     {errors.subject.message}
                   </div>
                 )}
               </div>
 
-              <div className='contact__form__form-group'>
+              <div className='form__form-group'>
                 <textarea
                   ref={register({
                     required: {
                       value: true,
-                      message: 'نوشتن موضوع الزامی است',
+                      message:
+                        'نوشتن موضوع الزامی است',
                     },
                   })}
                   name='message'
                   autoComplete='off'
                   placeholder='پیام شما *'
-                  className='contact__form__input-area'></textarea>
+                  className='form__input-area'></textarea>
 
                 {errors.message?.message && (
-                  <div className='contact__form__error'>
+                  <div className='form__error'>
                     {errors.message.message}
                   </div>
                 )}
@@ -273,20 +321,15 @@ const Contact = () => {
               {!state.pending ? (
                 <button
                   type='submit'
-                  className='contact__form__submit '>
+                  className='form__submit '>
                   ارسال پیام
                 </button>
               ) : (
                 <button
                   type='submit'
-                  className='contact__form__submit contact__form__submit--pending'>
+                  className='form__submit form__submit--pending'>
                   درحال ارسال پیام
                 </button>
-              )}
-              {state.message != null && (
-                <div className='contact__form__message'>
-                  {state.message}
-                </div>
               )}
             </div>
           </form>

@@ -1,15 +1,26 @@
 import axios from './config';
 
-export default (data) => {
+export default async (data) => {
+  let formData = new FormData();
+
+  formData.append('name', data.name);
+  formData.append('number', data.number);
+  formData.append('email', data.email);
+  formData.append('subject', data.subject);
+  formData.append('message', data.message);
   try {
-    const response = axios.post('SendMessage.php', data, {
-      headers: {
-        'content-type': 'multipart/form-data',
-      },
-    });
+    const response = await axios.post(
+      'SendMessage.php',
+      data,
+      {
+        headers: {
+          'content-type': 'multipart/form-data',
+        },
+      }
+    );
 
     return response;
   } catch (e) {
-    console.log(e);
+    return e.response;
   }
 };
