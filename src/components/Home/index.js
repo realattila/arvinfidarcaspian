@@ -12,7 +12,6 @@ import backToTop from '../../backToTop';
 import Header from '../Header';
 import Footer from '../Footer';
 import Modal from '../Modal';
-import Loading from '../Loading';
 import ProductsItem from '../Products/ProductsItem';
 import Customers from '../Customers';
 
@@ -25,7 +24,6 @@ const Home = ({ products }) => {
   const [state, setState] = useState({
     showModal: false,
     data: null,
-    loading: true,
   });
 
   // useRef
@@ -33,21 +31,9 @@ const Home = ({ products }) => {
 
   // useEffect
   useEffect(() => {
-    if (state.loading) {
-      setTimeout(() => {
-        setState({
-          ...state,
-          loading: false,
-        });
-      }, 1750);
-    }
     if (!!video.current) video.current.play();
     backToTop();
   }, [state, state.loading]);
-
-  if (state.loading) {
-    return <Loading />;
-  }
 
   // on Close modal
   const closeModal = () => {
@@ -90,10 +76,10 @@ const Home = ({ products }) => {
                 loop></video>
             </div>
           </div>
-          <h1 className='home__intro__title text-shadow--lg'>
+          {/* <h1 className='home__intro__title text-shadow--lg'>
             <div>شماره یک</div>
             <div>در تولید سنسور لنت ترمز</div>
-          </h1>
+          </h1> */}
         </div>
 
         <div className='products home__products'>
@@ -139,7 +125,7 @@ const Home = ({ products }) => {
           TitleClassName='home__item__title'
         />
       </div>
-      <Footer action />
+      <Footer />
     </>
   );
 };

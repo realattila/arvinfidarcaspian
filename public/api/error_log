@@ -1,0 +1,6 @@
+[03-Nov-2020 23:06:45 Asia/Tehran] 
+[05-Nov-2020 14:03:17 Asia/Tehran] PHP Parse error:  syntax error, unexpected '$_POST' (T_VARIABLE) in /home/avandfid/public_html/api/takeOrder.php on line 11
+[07-Nov-2020 11:57:16 Asia/Tehran] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/avandfid/public_html/api/TakeOrder.php on line 195
+[07-Nov-2020 11:59:38 Asia/Tehran] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/avandfid/public_html/api/TakeOrder.php on line 195
+[07-Nov-2020 21:08:22 Asia/Tehran] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/avandfid/public_html/api/TakeOrder.php on line 195
+[07-Nov-2020 21:09:16 Asia/Tehran] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/avandfid/public_html/api/TakeOrder.php on line 195
